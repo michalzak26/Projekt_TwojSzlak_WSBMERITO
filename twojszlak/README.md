@@ -1,3 +1,7 @@
+# Projekt_TwojSzlak_WSBMERITO
+
+Projekt praktyczny do pracy dyplomowej - Michał 160855
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
