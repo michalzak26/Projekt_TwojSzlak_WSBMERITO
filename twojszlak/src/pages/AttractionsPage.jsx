@@ -1,13 +1,11 @@
 import { useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-// HOOKI
 import { useTodoAttractions } from "../hooks/useTodoAttractions.js";
 import { useCityGeocode } from "../hooks/useCityGeocode.js";
 import { useAttractions } from "../hooks/useAttractions.js";
 import { useMapCenterFromURL } from "../hooks/useMapCenterFromURL.js";
 
-// KOMPONENTY
 import Navbar from "../components/Navbar.jsx";
 import AttractionsHeader from "../components/attractions/AttractionsHeader.jsx";
 import AttractionsSearch from "../components/attractions/AttractionsSearch.jsx";
@@ -18,8 +16,7 @@ import AttractionsList from "../components/attractions/AttractionsList.jsx";
 export function AttractionsPage() {
   const [searchParams] = useSearchParams();
 
-  // MAP CENTER
-  const [center, setCenter] = useState([52.2297, 21.0122]); // Warszawa domyślnie
+  const [center, setCenter] = useState([52.2297, 21.0122]);
   useMapCenterFromURL(searchParams, setCenter);
 
   const [sortBy, setSortBy] = useState("distance");
@@ -27,14 +24,11 @@ export function AttractionsPage() {
   const [selectedId, setSelectedId] = useState(null);
   const mapRef = useRef(null);
 
-  // HOOK — TODO lista
   const { todoList, isInTodo, toggleTodo } = useTodoAttractions();
 
-  // HOOK — wyszukiwanie miasta
   const { city, setCity, searchingCity, geocodeCity } =
     useCityGeocode(setCenter);
 
-  // HOOK — pobieranie + filtrowanie atrakcji
   const { attractions, loading, filtered } = useAttractions(
     center,
     sortBy,
@@ -43,11 +37,9 @@ export function AttractionsPage() {
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-6">
-      {/* HEADER */}
       <Navbar />
       <AttractionsHeader />
 
-      {/* SEARCH BAR */}
       <AttractionsSearch
         city={city}
         setCity={setCity}
@@ -55,9 +47,7 @@ export function AttractionsPage() {
         geocodeCity={geocodeCity}
       />
 
-      {/* MAPA + LISTA */}
       <section className="grid lg:grid-cols-2 gap-6">
-        {/* MAPA */}
         <AttractionsMap
           center={center}
           setCenter={setCenter}
@@ -67,7 +57,6 @@ export function AttractionsPage() {
           mapRef={mapRef}
         />
 
-        {/* LISTA ATRAKCJI */}
         <div className="bg-white p-4 rounded-2xl shadow flex flex-col h-[480px]">
           <AttractionsFilters
             sortBy={sortBy}

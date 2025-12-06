@@ -40,7 +40,6 @@ export default function AttractionsList({
             key={id}
             className="flex gap-3 p-2 rounded-lg border hover:bg-gray-50"
           >
-            {/* MINIATURA */}
             <div className="w-20 h-20 bg-gray-100 rounded overflow-hidden">
               {thumb ? (
                 <img
@@ -53,9 +52,7 @@ export default function AttractionsList({
               )}
             </div>
 
-            {/* OPIS */}
             <div className="flex-1">
-              {/* ADD/REMOVE */}
               <div className="mt-1 mb-1 text-right">
                 <button
                   onClick={() => toggleTodo(a)}
@@ -68,8 +65,6 @@ export default function AttractionsList({
                   {isInTodo(a) ? "❌ Usuń" : "➕ Dodaj"}
                 </button>
               </div>
-
-              {/* NAZWA */}
               <h3
                 onClick={() => {
                   setSelectedId(id);

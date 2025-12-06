@@ -14,7 +14,6 @@ import { useEffect } from "react";
 function AnimatedRoutes() {
   const location = useLocation();
 
-  // Przewijanie strony do góry po każdej zmianie trasy
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);

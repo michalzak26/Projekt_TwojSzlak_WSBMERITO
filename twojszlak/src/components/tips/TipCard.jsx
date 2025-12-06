@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 export default function TipCard({ tip }) {
   return (
     <article className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition overflow-hidden flex flex-col">
-      {/* MINIATURA */}
       {tip.thumbImage && (
         <div className="h-40 w-full overflow-hidden">
           <img
@@ -15,7 +14,6 @@ export default function TipCard({ tip }) {
         </div>
       )}
 
-      {/* TREŚĆ */}
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div className="flex items-center justify-between text-xs text-gray-500">
           <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">

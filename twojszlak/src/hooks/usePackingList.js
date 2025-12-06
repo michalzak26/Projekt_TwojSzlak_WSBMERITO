@@ -6,24 +6,20 @@ const STORAGE_KEY = "packing_list";
 export function usePackingList() {
   const [list, setList] = useState([]);
 
-  // Load on start
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) setList(JSON.parse(saved));
   }, []);
 
-  // SAVE function
   const saveList = (updated) => {
     setList(updated);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
   };
 
-  // Clear list
   const clearList = () => {
     saveList([]);
   };
 
-  // Add item
   const addItem = (text, category) => {
     if (!text.trim()) return;
 
@@ -41,12 +37,10 @@ export function usePackingList() {
     saveList(updated);
   };
 
-  // Remove item
   const removeItem = (id) => {
     saveList(list.filter((i) => i.id !== id));
   };
 
-  // Change quantity
   const changeQty = (id, delta) => {
     saveList(
       list.map((i) =>
@@ -55,14 +49,12 @@ export function usePackingList() {
     );
   };
 
-  // Toggle checkbox
   const toggleChecked = (id) => {
     saveList(
       list.map((i) => (i.id === id ? { ...i, checked: !i.checked } : i))
     );
   };
 
-  // Apply template
   const applyTemplate = (key) => {
     const template = TEMPLATES[key];
     if (!template) return;
@@ -78,7 +70,6 @@ export function usePackingList() {
     saveList(generated);
   };
 
-  // Group items by category
   const grouped = CATEGORIES.map((cat) => ({
     cat,
     items: list.filter((i) => i.category === cat.id),

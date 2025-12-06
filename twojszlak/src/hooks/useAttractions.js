@@ -5,7 +5,6 @@ export function useAttractions(center, sortBy, category) {
   const [attractions, setAttractions] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // pobieranie danych
   useEffect(() => {
     async function load() {
       setLoading(true);
@@ -22,7 +21,6 @@ export function useAttractions(center, sortBy, category) {
     load();
   }, [center]);
 
-  // sortowanie + filtrowanie
   const filtered = useMemo(() => {
     let list = attractions.filter((a) => a.properties?.name);
 

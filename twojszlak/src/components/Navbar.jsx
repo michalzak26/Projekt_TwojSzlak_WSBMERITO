@@ -7,7 +7,6 @@ export default function Navbar() {
   return (
     <header className="w-full bg-white border-b shadow-sm sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
         <Link
           to="/"
           className="text-2xl font-bold text-green-700 flex items-center gap-2"
@@ -15,12 +14,10 @@ export default function Navbar() {
           🗺️ TwójSzlak
         </Link>
 
-        {/* Hamburger (mobile) */}
         <button className="md:hidden text-3xl" onClick={() => setOpen(!open)}>
           ☰
         </button>
 
-        {/* Menu desktop */}
         <nav className="hidden md:flex gap-6 font-semibold text-sm uppercase tracking-wide">
           <Link to="/" className="text-gray-600 hover:text-green-700">
             Start
@@ -55,7 +52,6 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Menu mobile */}
       {open && (
         <nav className="md:hidden bg-white border-t shadow-inner animate-fadeIn">
           <div className="flex flex-col text-sm font-semibold uppercase tracking-wide p-4 space-y-3">

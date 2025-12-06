@@ -36,7 +36,6 @@ export function TipPage() {
   return (
     <div className="min-h-screen bg-bg text-text">
       <div className="max-w-4xl mx-auto p-6 pb-12 space-y-8">
-        {/* Powrót */}
         <Link
           to="/tips"
           className="inline-flex items-center gap-2 text-blue-600 text-sm hover:underline"
@@ -45,7 +44,6 @@ export function TipPage() {
           Wróć do porad
         </Link>
 
-        {/* HERO OBRAZ */}
         {tip.heroImage && (
           <div className="h-64 md:h-80 w-full rounded-3xl overflow-hidden shadow-md">
             <img
@@ -56,9 +54,7 @@ export function TipPage() {
           </div>
         )}
 
-        {/* KARTA TREŚCI */}
         <article className="bg-white rounded-3xl shadow-lg p-6 md:p-8 space-y-6">
-          {/* Meta */}
           <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
             <span
               className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold ${categoryClass}`}
@@ -72,7 +68,6 @@ export function TipPage() {
             )}
           </div>
 
-          {/* Tytuł */}
           <header className="space-y-2">
             <h1 className="text-3xl font-bold text-gray-900 leading-tight">
               {tip.title}
@@ -80,7 +75,6 @@ export function TipPage() {
             <p className="text-gray-600 text-sm md:text-base">{tip.excerpt}</p>
           </header>
 
-          {/* WŁAŚCIWA TREŚĆ — zależna od tip.id */}
           <div className="space-y-6 text-sm md:text-base text-gray-800 leading-relaxed">
             {id === "sprzet-gory" && <TipContentEquipment />}
             {id === "bezpieczenstwo-lato" && <TipContentSafety />}
@@ -89,7 +83,6 @@ export function TipPage() {
           </div>
         </article>
 
-        {/* Powiązane porady */}
         {related.length > 0 && (
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-gray-800">
@@ -106,10 +99,6 @@ export function TipPage() {
     </div>
   );
 }
-
-/* ─────────────────────────────
-   TREŚCI DLA POSZCZEGÓLNYCH TIPÓW
-   ───────────────────────────── */
 
 function TipContentEquipment() {
   return (

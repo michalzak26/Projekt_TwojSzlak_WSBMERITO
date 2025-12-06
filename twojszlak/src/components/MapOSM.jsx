@@ -8,7 +8,6 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 
-// ikona markera
 const redIcon = new L.Icon({
   iconUrl: "/icons/marker-icon-blue.png",
   iconSize: [25, 41],
@@ -26,9 +25,8 @@ function MapClickHandler({ setPoints }) {
 }
 
 export default function MapOSM({ points, setPoints, route }) {
-  const center = points[0] || [52.2297, 21.0122]; // Warszawa fallback
+  const center = points[0] || [52.2297, 21.0122];
 
-  // 🔥 jeśli OSRM zwróci GeoJSON, to pobieramy geometry.coordinates
   const line =
     route && route.type === "LineString"
       ? route.coordinates.map(([lng, lat]) => [lat, lng])
@@ -47,15 +45,12 @@ export default function MapOSM({ points, setPoints, route }) {
 
       <MapClickHandler setPoints={setPoints} />
 
-      {/* Punkty */}
       {points.map((pos, i) => (
         <Marker key={i} position={pos} icon={redIcon} />
       ))}
 
-      {/* 🔥 WYZNACZONA TRASA */}
       {line && <Polyline positions={line} color="red" weight={4} />}
 
-      {/* jeśli nie ma trasy, pokazujemy linię łączącą punkty */}
       {!line && points.length > 1 && (
         <Polyline positions={points} color="blue" weight={3} dashArray="6" />
       )}

@@ -6,7 +6,6 @@ export async function fetchAttractions(lat, lng, radius = 5000) {
     return [];
   }
 
-  // ★ POPRAWNE KATEGORIE GEOAPIFY ★
   const categories = [
     "tourism", // zabytki, punkty turystyczne
     "entertainment", // rozrywka

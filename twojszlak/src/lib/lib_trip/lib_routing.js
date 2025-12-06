@@ -1,20 +1,11 @@
-// =============================================
-// lib_routing.js – OSRM driving / cycling / foot
-// =============================================
-
 export async function fetchRoute(points, mode = "driving") {
   if (!points || points.length < 2) return null;
 
-  // profile:
-  // routed-car → samochód
-  // routed-bike → rower
-  // routed-foot → pieszo
   const profile =
     mode === "foot" ? "foot" : mode === "cycling" ? "bike" : "car";
 
   const coords = points.map((p) => `${p[1]},${p[0]}`).join(";");
 
-  // 🔥 poprawny URL
   const url = `https://routing.openstreetmap.de/routed-${profile}/route/v1/${profile}/${coords}?overview=full&geometries=geojson&steps=true`;
 
   try {
@@ -27,7 +18,6 @@ export async function fetchRoute(points, mode = "driving") {
     const distanceKm = +(route.distance / 1000).toFixed(1);
     const durationMin = Math.round(route.duration / 60);
 
-    // odcinki między punktami
     const segments = route.legs.map((leg, i) => ({
       index: i + 1,
       distanceKm: +((leg.distance || 0) / 1000).toFixed(1),
@@ -35,7 +25,7 @@ export async function fetchRoute(points, mode = "driving") {
     }));
 
     return {
-      geometry: route.geometry, // {type:"LineString", coordinates:[...]}
+      geometry: route.geometry,
       distanceKm,
       durationMin,
       segments,

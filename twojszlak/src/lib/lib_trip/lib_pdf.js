@@ -7,10 +7,8 @@ export async function generateTripPDF(trip, containerElement) {
     return;
   }
 
-  // Czekamy aż Tailwind wyrenderuje wygląd
   await new Promise((res) => setTimeout(res, 300));
 
-  // Zrzut ekranu — pełna jakość, tło, styl
   const canvas = await html2canvas(containerElement, {
     useCORS: true,
     scale: 2,
@@ -28,7 +26,6 @@ export async function generateTripPDF(trip, containerElement) {
 
   let position = 0;
 
-  // Dodawanie kolejnych stron jeśli obrazek jest długi
   pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
 
   while (position + imgHeight > pdfHeight) {

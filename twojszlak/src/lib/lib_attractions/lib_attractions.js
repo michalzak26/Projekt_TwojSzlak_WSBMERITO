@@ -1,6 +1,5 @@
 const KEY = import.meta.env.VITE_OPENTRIPMAP_KEY;
 
-// lista atrakcji w promieniu X metrów
 export async function fetchAttractions(lat, lng, radius = 5000, limit = 30) {
   if (!KEY) {
     console.warn("Brak VITE_OPENTRIPMAP_KEY w .env");
@@ -19,7 +18,6 @@ export async function fetchAttractions(lat, lng, radius = 5000, limit = 30) {
   return data.features || data;
 }
 
-// szczegóły pojedynczej atrakcji (thumbnail, opis itd.)
 export async function fetchAttractionDetails(xid) {
   if (!KEY) return null;
 

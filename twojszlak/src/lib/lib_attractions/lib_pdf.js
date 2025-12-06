@@ -3,15 +3,12 @@ import leafletImage from "leaflet-image";
 
 /**
  * Tworzy PDF z tytułem, notatką, listą punktów i mini-mapą (Leaflet screenshot).
- * @param {Object} trip - Obiekt trasy
- * @param {HTMLElement|null} mapElement - Referencja do DIV mapy (MapContainer)
+ * @param {Object} trip
+ * @param {HTMLElement|null} mapElement
  */
 export async function generateTripPDF(trip, mapElement) {
   const doc = new jsPDF();
 
-  // -----------------------
-  // NAGŁÓWEK
-  // -----------------------
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
   doc.text("🗺️ Plan podróży", 14, 20);
@@ -23,9 +20,6 @@ export async function generateTripPDF(trip, mapElement) {
   doc.setFontSize(10);
   doc.text(`Utworzono: ${date}`, 14, 38);
 
-  // -----------------------
-  // NOTATKA
-  // -----------------------
   if (trip.note && trip.note.trim()) {
     doc.setFontSize(12);
     doc.text("Notatka:", 14, 50);
@@ -34,9 +28,6 @@ export async function generateTripPDF(trip, mapElement) {
     doc.text(trip.note, 14, 58, { maxWidth: 180 });
   }
 
-  // -----------------------
-  // ZRZUT MAPY LEAFLET
-  // -----------------------
   if (mapElement) {
     try {
       const map = mapElement._leaflet_map;
@@ -59,9 +50,6 @@ export async function generateTripPDF(trip, mapElement) {
     }
   }
 
-  // -----------------------
-  // LISTA PUNKTÓW TRASY
-  // -----------------------
   const tableStart = trip.note && trip.note.trim() ? 210 : 190;
 
   doc.setFontSize(12);
@@ -76,15 +64,9 @@ export async function generateTripPDF(trip, mapElement) {
     y += 6;
   });
 
-  // -----------------------
-  // STOPKA
-  // -----------------------
   doc.setFontSize(9);
   doc.setTextColor(120);
   doc.text("Wygenerowano przez TwójSzlak.pl — demo offline", 14, 285);
 
-  // -----------------------
-  // ZAPIS PLIKU
-  // -----------------------
   doc.save(`Plan_${trip.title.replace(/\s+/g, "_")}.pdf`);
 }

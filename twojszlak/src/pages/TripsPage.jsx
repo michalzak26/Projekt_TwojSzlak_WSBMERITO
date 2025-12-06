@@ -19,29 +19,24 @@ import {
 import { generateTripPDF } from "../lib/lib_trip/lib_pdf.js";
 
 export function TripsPage() {
-  // lokalne dane formularza
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
   const [points, setPoints] = useState([]);
   const [mode, setMode] = useState("driving");
 
-  // hooki
   const { trips, saveTrip } = useTrips();
   const { route, distanceKm, durationDrivingMin } = useRouting(points);
   const weather = useWeather(points);
 
   const pdfRef = useRef(null);
 
-  // wyliczenie czasu
   const totalDurationForMode = useMemo(
     () => getDurationForMode(distanceKm, durationDrivingMin, mode),
     [distanceKm, durationDrivingMin, mode]
   );
 
-  // walidacja zapisu trasy
   const canSave = title.trim().length > 0 && points.length >= 2;
 
-  // zapis trasy
   const onSave = () => {
     if (!canSave) return;
 
@@ -101,7 +96,6 @@ export function TripsPage() {
           />
         </section>
 
-        {/* INFO + POGODA + ZAPISANE */}
         <section className="space-y-6">
           <TripInfo
             route={route}

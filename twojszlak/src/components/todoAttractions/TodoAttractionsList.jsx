@@ -20,7 +20,6 @@ export default function TodoAttractionsList({ todoList, remove }) {
             key={id}
             className="border rounded-xl p-4 shadow hover:bg-gray-50 transition"
           >
-            {/* Tytuł + usuń */}
             <div className="flex items-center justify-between">
               <h2 className="font-semibold text-lg flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-red-600" />
@@ -36,12 +35,10 @@ export default function TodoAttractionsList({ todoList, remove }) {
               </button>
             </div>
 
-            {/* Kategorie */}
             <p className="text-sm text-gray-600 mb-2">
               {p.categories?.join(", ") || "brak kategorii"}
             </p>
 
-            {/* Mapa */}
             <div
               id={`map-preview-${id}`}
               className="rounded-lg overflow-hidden border shadow"
@@ -64,7 +61,6 @@ export default function TodoAttractionsList({ todoList, remove }) {
               </MapContainer>
             </div>
 
-            {/* Dystans */}
             {p.distance && (
               <p className="text-xs text-gray-700 mt-2">
                 📏 Odległość: {Math.round(p.distance)} m

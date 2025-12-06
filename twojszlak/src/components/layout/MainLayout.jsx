@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 export function MainLayout({ children }) {
   return (
     <div>
-      {/* Nagłówek */}
       <header style={{ background: "#1f2937", color: "#fff", padding: "1rem" }}>
         <nav style={{ display: "flex", gap: "1rem" }}>
           <NavLink to="/" style={{ color: "white" }}>
@@ -15,10 +14,8 @@ export function MainLayout({ children }) {
         </nav>
       </header>
 
-      {/* Główna zawartość */}
       <main style={{ padding: "2rem" }}>{children}</main>
 
-      {/* Stopka */}
       <footer
         style={{
           background: "#1f2937",
