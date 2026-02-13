@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import TipsList from "../tips/TipsList";
-import { TIPS_DATA } from "../tips/tipsData";
+import { TIPS_DATA } from "../tips/TipsData";
 
 export default function AdviceSection() {
   // Pobieramy dokładnie 3 pierwsze porady dla strony głównej
