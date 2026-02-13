@@ -1,0 +1,28 @@
+/* 1. Import czcionki Inter z Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* 2. Dyrektywy Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. Style globalne i body */
+body {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+  color: #111827;
+  font-family: "Inter", sans-serif;
+}
+
+/* 4. Style do druku (Print) */
+@media print {
+  .avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .attraction-box {
+    height: 380px !important;
+    overflow: hidden !important;
+    padding-bottom: 16px !important;
+  }
+}
