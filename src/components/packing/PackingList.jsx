@@ -52,8 +52,8 @@ export default function PackingList({
                       onClick={() => toggleChecked(i.id)}
                       className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all ${
                         i.checked
-                          ? "bg-emerald-600 text-white shadow-sm"
-                          : "bg-gray-100 text-transparent hover:bg-gray-200"
+                          ? "bg-emerald-700 text-white shadow-sm"
+                          : "bg-white border border-emerald-700 text-transparent hover:bg-gray-200"
                       }`}
                     >
                       <CheckSquare className="w-4 h-4" />
