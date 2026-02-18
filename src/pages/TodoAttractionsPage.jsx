@@ -13,8 +13,6 @@ export function TodoAttractionsPage() {
       {/* TŁO DEKORACYJNE */}
       <div className="fixed inset-0 bg-gradient-to-b from-emerald-50/50 via-white to-gray-50 -z-10 pointer-events-none" />
 
-      <Navbar />
-
       {/* GŁÓWNA ZAWARTOŚĆ */}
       <main className="flex-grow w-full max-w-5xl mx-auto px-6 py-8 space-y-8">
         {/* NAGŁÓWEK */}
