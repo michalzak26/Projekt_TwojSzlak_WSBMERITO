@@ -42,6 +42,7 @@ export default function MapOSM({ points, setPoints, route }) {
       <TileLayer
         attribution="&copy; OpenStreetMap"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        crossOrigin={true}
       />
 
       <MapClickHandler setPoints={setPoints} />
