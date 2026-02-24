@@ -24,7 +24,10 @@ export function TodoPackingPage() {
 
   /* Eksport PDF */
   const exportPDF = () => {
-    window.print();
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.print();
+    }, 800);
   };
 
   return (
