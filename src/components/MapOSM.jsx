@@ -40,9 +40,8 @@ export default function MapOSM({ points, setPoints, route }) {
       style={{ height: "550px", width: "100%", borderRadius: "1rem" }}
     >
       <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        crossOrigin="anonymous" 
+        attribution="&copy; OpenStreetMap"
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
       <MapClickHandler setPoints={setPoints} />
