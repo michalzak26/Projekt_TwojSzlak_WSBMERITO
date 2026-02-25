@@ -27,7 +27,7 @@ export function TodoPackingPage() {
     window.scrollTo(0, 0);
     setTimeout(() => {
       window.print();
-    }, 3000);
+    }, 1000);
   };
 
   return (
